@@ -1,0 +1,14 @@
+<article id="lead">
+	<h1>{{fullName}}</h1>
+	<p>Name: {{fullName}}</p>
+	<p>Email: {{email}}</p>
+	<p>Phone: {{phone}}</p>
+	<p>Label Status:
+		{{view Ember.Select content=statuses value=status}}
+	</p>
+	<p>Label notes:
+		<br>
+		{{view Ember.TextArea value=notes}}
+	</p>
+	<p>{{input type='submit' value='Save Changes' click='saveChanges'}}</p>
+</article>

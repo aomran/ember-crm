@@ -1,0 +1,9 @@
+<article id="leads">
+	<h1>Leads</h1>
+	<ul>
+		{{#each}}
+			{{#link-to 'lead' this}} <li>{{fullName}}</li> {{/link-to}}
+		{{/each}}
+	</ul>
+</article>
+{{outlet}}
