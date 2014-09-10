@@ -1,14 +1,29 @@
-<article id="lead">
-	<h1>{{fullName}}</h1>
-	<p>Name: {{fullName}}</p>
-	<p>Email: {{email}}</p>
-	<p>Phone: {{phone}}</p>
-	<p>Label Status:
-		{{view Ember.Select content=statuses value=status}}
-	</p>
-	<p>Label notes:
-		<br>
-		{{view Ember.TextArea value=notes}}
-	</p>
-	<p>{{input type='submit' value='Save Changes' click='saveChanges'}}</p>
-</article>
+{{outlet}}
+{{#unless isEditing}}
+	<article id="lead">
+		<h1>
+			{{fullName}}
+			{{link-to 'edit' 'lead.edit' model classNames='edit'}}
+		</h1>
+		<p>Name: {{fullName}}</p>
+		<p>Email: {{email}}</p>
+		<p>Phone: {{phone}}</p>
+		<p>Label Status:
+			{{view Ember.Select content=statuses value=status}}
+		</p>
+		<p>Label notes:
+			<br>
+			{{view Ember.TextArea value=notes}}
+		</p>
+		<p>
+			<a class="delete" {{action "delete"}}>delete</a>
+			<button {{action 'saveChanges'}}>Save Changes</button>
+		</p>
+		{{#if showUnsavedMessage}}
+			<div class="unsaved">Unsaved changes</div>
+		{{/if}}
+		{{#if isSaving}}
+			<div class="saving">saving...</div>
+		{{/if}}
+	</article>
+{{/unless}}

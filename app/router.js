@@ -5,9 +5,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-	this.resource('leads', {path: '/'}, function(){
-		this.resource('lead', {path: 'leads/:id'})
+	this.resource('leads', function(){
+		this.resource('lead', {path: '/:lead_id'}, function(){
+			this.route('edit');
+		})
 	});
+  this.route('lead_edit');
 });
 
 export default Router;
