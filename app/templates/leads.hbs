@@ -2,10 +2,11 @@
 	<h1>
 		Leads
 		{{link-to 'New Lead' 'leads.new'}}
+		{{input type="text" value=search placeholder="search" classNames="search"}}
 	</h1>
 	<ul>
-		{{#each}}
-			{{#link-to 'lead' this}} <li>{{fullName}}</li> {{/link-to}}
+		{{#each lead in leads}}
+			{{#link-to 'lead' lead}} <li>{{lead.fullName}}</li> {{/link-to}}
 		{{/each}}
 	</ul>
 </article>
