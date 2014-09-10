@@ -13,6 +13,9 @@ var Lead = DS.Model.extend({
 });
 
 Lead.reopenClass({
+	valid: function(fields) {
+    return fields.firstName && fields.lastName
+  },
 	FIXTURES: [
 		{
 			id: 1,
